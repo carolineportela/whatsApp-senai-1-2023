@@ -1,8 +1,14 @@
 'use strict'
 
-import { contatos } from "./contatos.js"
+import { getDadosWhats } from "./main.js"
 
-const criarCard = (contato, indice) => {
+const contatos = await getDadosWhats ('11966578996')
+//const contatos = await getDadosWhats ('11987876567')
+//const contatos = await getDadosWhats ('11966578996')
+//const contatos = await getDadosWhats ('11955577796')
+
+
+const criarCard =  (contato, indice) => {
 
     const conversa = document.createElement('div')
     conversa.classList.add('container-conversas')
@@ -72,29 +78,29 @@ const criarMensagem = (indice) => {
 
     const containerMensagensDireita = document.createElement('div')
     containerMensagensDireita.classList.add('container-mensagens-direita');
-    
+
     contatos[indice].messages.forEach((mensagem) => {
-        
-    const caixaMensagensMinha = document.createElement('div')
-    caixaMensagensMinha.classList.add('caixa-mensagens-minha')
 
-    const caixaMensagensSua = document.createElement('div')
-    caixaMensagensSua.classList.add('caixa-mensagens-sua')
+        const caixaMensagensMinha = document.createElement('div')
+        caixaMensagensMinha.classList.add('caixa-mensagens-minha')
 
-    const msgMinha = document.createElement('p')
-    msgMinha.classList.add('msg-minha')
+        const caixaMensagensSua = document.createElement('div')
+        caixaMensagensSua.classList.add('caixa-mensagens-sua')
 
-    const horaMinha = document.createElement('span')
-    horaMinha.classList.add('hora-minha')
+        const msgMinha = document.createElement('p')
+        msgMinha.classList.add('msg-minha')
 
-    const msgSua = document.createElement('p')
-    msgSua.classList.add('msg-sua')
+        const horaMinha = document.createElement('span')
+        horaMinha.classList.add('hora-minha')
 
-    const horaSua = document.createElement('span')
-    horaSua.classList.add('hora-sua')
+        const msgSua = document.createElement('p')
+        msgSua.classList.add('msg-sua')
+
+        const horaSua = document.createElement('span')
+        horaSua.classList.add('hora-sua')
 
 
-        
+
         if (mensagem.sender == 'me') {
 
             msgMinha.classList.add('msg-minha')
@@ -130,7 +136,7 @@ const carregarBarraDeMensagem = () => {
     return footer
 }
 
-const barraDeRolagem = () =>  window.scroll (0, document.body.scrollHeight)
+const barraDeRolagem = () => window.scroll(0, document.body.scrollHeight)
 const voltar = () => {
     const back = document.createAttribute('a')
     back.classList.add('back')
